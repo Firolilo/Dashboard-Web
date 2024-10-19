@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container {
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .admin-message {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 id="welcome-message">Hola, </h1>
+    <p id="admin-message" class="admin-message" style="display:none;">Eres Administrador</p>
+</div>
+
+<script>
+    // Obtenemos el nombre de usuario y su rol del localStorage
+    const username = localStorage.getItem('loggedInUser');
+    const role = localStorage.getItem('loggedInUserRole');
+
+    // Mostramos el saludo personalizado
+    document.getElementById('welcome-message').innerText = `Hola, ${username}.`;
+
+    // Si el usuario es administrador, mostramos el mensaje especial
+    if (role === 'admin') {
+        document.getElementById('admin-message').style.display = "block";
+    }
+</script>
+
+</body>
+</html>

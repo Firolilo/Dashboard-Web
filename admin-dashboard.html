@@ -43,8 +43,11 @@
 
 <div class="container">
     <h2>Bienvenido Administrador</h2>
+
+    <button onclick="generateReport()">Generar reporte</button>
+
     <h3>Gestión de Usuarios</h3>
-    
+
     <h4>Agregar Usuario</h4>
     <input type="text" id="new-username" placeholder="Nuevo Username">
     <input type="password" id="new-password" placeholder="Nuevo Password">
@@ -62,7 +65,7 @@
 <div id="edit-user-modal">
     <h4>Editar Usuario</h4>
     <input type="text" id="edit-username" placeholder="Nuevo Username">
-    <input type="password" id="edit-password" placeholder="Nuevo Password">
+    <input type="text" id="edit-password" placeholder="Nuevo Password">
     <select id="edit-role">
         <option value="miembro">Miembro</option>
         <option value="admin">Administrador</option>

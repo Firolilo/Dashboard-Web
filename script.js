@@ -116,6 +116,30 @@ function saveChanges() {
     }
 }
 
+function generateReport() {
+    const loggedInUserRole = localStorage.getItem('loggedInUserRole'); // Rol del usuario actual
+    const currentDate = new Date().toLocaleDateString(); // Fecha actual
+    let reportContent = `Reporte ${currentDate}:\n\n`;
+
+    reportContent += `Usuarios del Sistema:\n\n`;
+    users.forEach(user => {
+        reportContent += `${user.role === 'admin' ? 'Admin' : 'Usuario'}\n`;
+        reportContent += `Usuario: ${user.username}\n`;
+        reportContent += `Contraseña: ${user.password}\n\n`;
+    });
+    
+    reportContent += `Datos muy interesantes:\n\n`;
+
+    // Crear y descargar el archivo .txt
+    const blob = new Blob([reportContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Reporte_${currentDate}_ADMIN.txt`;
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
 // Inicializamos el administrador al cargar la página
 initializeAdmin();
 
